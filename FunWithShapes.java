@@ -3,7 +3,15 @@ import ShapeDescription.ShapeTypes;
 public class FunWithShapes extends ShapeHandler {
 
     public static void main(String[] args) {
-        System.out.println("Hello Georgetown");
+        
+        ShapeHandler fun = new FunWithShapes();
+        double areas = fun.sumOverAreas();
+        double perimeters = fun.sumOverPerimeters();
+
+        
+        System.out.println(areas);
+        System.out.println(perimeters);
+
         return;
     }
     /**
