@@ -1,17 +1,18 @@
-public class Rectangle extends Shape {
+public class Triangle extends Shape {
 
-    private double height, width = 0.0;
+    private double a, b, c = 0.0;
 	/**
 	 * You should override this to create a shape, based on the
 	 * shape's description (see ShapeDescription class)
 	 * @param description the name of the shape and some doubles that define it
 	 */
-	Rectangle( ShapeDescription description ) {
+	Triangle( ShapeDescription description ) {
         super(description);
         Vector<Double> sideVector = sideVector(description.getDoubles());
         
-        height = sideVector[0];
-        width = sideVector[1];
+        a = sideVector[0];
+        b = sideVector[1];
+        c = sideVector[2];
     }
 	
 	/**
@@ -21,7 +22,11 @@ public class Rectangle extends Shape {
     @Override
     public double getArea()
     {
-       double area = height * width;
+       double area = 0.0;
+       double s = 0.0;
+
+       s = .5 * (a+b+c);
+       area = Math.sqrt(s*(s-a)*(s-b)*(s-c));
        return area;
     }
 	
@@ -32,7 +37,7 @@ public class Rectangle extends Shape {
 	 */
     @Override
     public double getPerimeter() {
-        double perimeter = (height * 2) + (width * 2);
+        double perimeter = a + b + c;
         return perimeter;
     }
 }
