@@ -1,18 +1,28 @@
-import ShapeDescription.ShapeTypes;
 
 public class FunWithShapes extends ShapeHandler {
-
     public static void main(String[] args) {
-        
-        ShapeHandler fun = new FunWithShapes();
-        double areas = fun.sumOverAreas();
-        double perimeters = fun.sumOverPerimeters();
+
+        //try {
+            double areas = 0.0;
+            double perimeters = 0.0;
+            //ShapeHandler fun = new FunWithShapes();
+            
+            //double areas = fun.sumOverAreas();
+            //double perimeters = fun.sumOverPerimeters();
+
+            
+            System.out.println(areas);
+            System.out.println(perimeters);
+
+            return;
+
+        /*} catch (ShapeException e) {
+            System.out.println("Caught ShapeException");
+        } catch (Exception e) {
+            System.out.println("Unknown exception caught here");
+        }*/
 
         
-        System.out.println(areas);
-        System.out.println(perimeters);
-
-        return;
     }
     /**
 	 * Given the shapeDescriptions, converts it to a vector
@@ -20,23 +30,23 @@ public class FunWithShapes extends ShapeHandler {
 	 */
     @Override
     public void convertDescriptionsToShapes() {
-        ShapeTypes shapeType = "";
+        //ShapeTypes shapeType = "";
 
         for (ShapeDescription s: shapeDescriptions) {
 
-            shapeType = s.getShapeType;
+            //shapeType = s.getShapeType;
 
-                if (shape == ShapeTypes.CIRCLE) {
-                    Circle shape = Circle(s);
+                if (s.getShapeType == ShapeDescription.ShapeTypes.CIRCLE) {
+                    Circle shape = new Circle(s);
                 }
-                else if (shapeType == ShapeTypes.SQUARE) {
-                    Square shape = Square(s);
+                else if (s.getShapeType == ShapeDescription.ShapeTypes.SQUARE) {
+                    Square shape = new Square(s);
                 }
-                else if (shapeType == ShapeTypes.RECTANGLE) {
-                    Rectangle shape = Rectangle(s);
+                else if (s.getShapeType == ShapeDescription.ShapeTypes.RECTANGLE) {
+                    Rectangle shape = new Rectangle(s);
                 }
-                else if (shapeType == ShapeTypes.TRIANGLE) {
-                    Triangle shape = Triangle(s);
+                else if (s.getShapeType == ShapeDescription.ShapeTypes.TRIANGLE) {
+                    Triangle shape = new Triangle(s);
                 }
                 else {System.out.println("Shape Type: " + shape + " not found from within convertDescriptionsToShapes()");
             }

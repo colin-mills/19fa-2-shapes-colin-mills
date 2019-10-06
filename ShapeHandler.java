@@ -24,7 +24,7 @@ public abstract class ShapeHandler {
 		String filename = "shapes.txt";
 		shapes = new Vector<Shape>();
 		shapeDescriptions = new Vector<ShapeDescription>();
-
+		System.out.println("Before Try Block");
 		try {
 			String line;
 			BufferedReader reader = new BufferedReader(new FileReader(new File(filename)));
