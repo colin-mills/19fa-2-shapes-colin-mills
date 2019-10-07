@@ -1,34 +1,30 @@
 public class Triangle extends Shape {
 
-    private double a, b, c = 0.0;
-	/**
-	 * You should override this to create a shape, based on the
-	 * shape's description (see ShapeDescription class)
-	 * @param description the name of the shape and some doubles that define it
-	 */
+    private double a = 0.0;
+    private double b = 0.0;
+    private double c = 0.0;
+
+    
 	Triangle( ShapeDescription description ) {
         super(description);
-        Vector<Double> sideVector = sideVector(description.getDoubles());
-        
-        a = sideVector[0];
-        b = sideVector[1];
-        c = sideVector[2];
-    }
+        a = description.getDoubles().get(0);
+        b = description.getDoubles().get(1);
+        c = description.getDoubles().get(2);
+    }//END constructor
 	
 	/**
 	 * Returns the area of a shape
 	 * @return the area
 	 */
     @Override
-    public double getArea()
-    {
+    public double getArea() {
        double area = 0.0;
        double s = 0.0;
 
        s = .5 * (a+b+c);
        area = Math.sqrt(s*(s-a)*(s-b)*(s-c));
        return area;
-    }
+    }//END getArea
 	
 	
 	/**
@@ -39,5 +35,5 @@ public class Triangle extends Shape {
     public double getPerimeter() {
         double perimeter = a + b + c;
         return perimeter;
-    }
+    }//END getPerim
 }

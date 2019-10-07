@@ -1,62 +1,39 @@
-
 public class FunWithShapes extends ShapeHandler {
-    public static void main(String[] args) {
 
-        //try {
-            double areas = 0.0;
-            double perimeters = 0.0;
-            //ShapeHandler fun = new FunWithShapes();
-            
-            //double areas = fun.sumOverAreas();
-            //double perimeters = fun.sumOverPerimeters();
-
-            
-            System.out.println(areas);
-            System.out.println(perimeters);
-
-            return;
-
-        /*} catch (ShapeException e) {
-            System.out.println("Caught ShapeException");
-        } catch (Exception e) {
-            System.out.println("Unknown exception caught here");
-        }*/
-
-        
-    }
+    FunWithShapes() throws ShapeException {
+        super();
+    }//END construct
     /**
 	 * Given the shapeDescriptions, converts it to a vector
 	 * of actual shape objects.
 	 */
     @Override
     public void convertDescriptionsToShapes() {
-        //ShapeTypes shapeType = "";
 
         for (ShapeDescription s: shapeDescriptions) {
+            
+            ShapeDescription.ShapeTypes shapeType = s.getShapeType();
 
-            //shapeType = s.getShapeType;
-
-                if (s.getShapeType == ShapeDescription.ShapeTypes.CIRCLE) {
-                    Circle shape = new Circle(s);
-                }
-                else if (s.getShapeType == ShapeDescription.ShapeTypes.SQUARE) {
-                    Square shape = new Square(s);
-                }
-                else if (s.getShapeType == ShapeDescription.ShapeTypes.RECTANGLE) {
-                    Rectangle shape = new Rectangle(s);
-                }
-                else if (s.getShapeType == ShapeDescription.ShapeTypes.TRIANGLE) {
-                    Triangle shape = new Triangle(s);
-                }
-                else {System.out.println("Shape Type: " + shape + " not found from within convertDescriptionsToShapes()");
+            if (shapeType == ShapeDescription.ShapeTypes.CIRCLE) {
+                Circle shape = new Circle(s);
+                shapes.add(shape);
             }
-            shapes.add(shape);
+            else if (shapeType == ShapeDescription.ShapeTypes.SQUARE) {
+                Square shape = new Square(s);
+                shapes.add(shape);
+            }
+            else if (shapeType == ShapeDescription.ShapeTypes.RECTANGLE) {
+                Rectangle shape = new Rectangle(s);
+                shapes.add(shape);
+            }
+            else if (shapeType == ShapeDescription.ShapeTypes.TRIANGLE) {
+                Triangle shape = new Triangle(s);
+                shapes.add(shape);
+            }
+        }//END for loop
 
-        }
-    }
+    }//END convert Descriptions
 
-	
-	
 	/**
 	 * Computes the sum of the shapes' areas, where the shapes
 	 * are from the shapes list
@@ -71,7 +48,7 @@ public class FunWithShapes extends ShapeHandler {
             totalArea += tempArea;
         }
         return totalArea;
-    }
+    }//END sumArea
 	
 
 	
@@ -89,6 +66,28 @@ public class FunWithShapes extends ShapeHandler {
             totalPerimeter += tempPerimeter;
         }
         return totalPerimeter;
-    } 
+    }//END sumPErim 
+    public static void main(String[] args) {
 
-}
+        try {
+            double areas = 0.0;
+            double perimeters = 0.0;
+
+            FunWithShapes fun = new FunWithShapes();
+            areas = fun.sumOverAreas();
+            perimeters = fun.sumOverPerimeters();
+
+            System.out.println(areas);
+            System.out.println(perimeters);
+            
+        } 
+        catch (ShapeException exc) {
+            System.out.println("Caught Shape Exception");
+        }
+        catch (Exception e) {
+            System.out.println("WTF");
+        }
+         
+    }//END Main 
+
+}//END FUNWITHSHAPES

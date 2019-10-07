@@ -1,27 +1,21 @@
 public class Circle extends Shape {
 
     private double radius;
-	/**
-	 * You should override this to create a shape, based on the
-	 * shape's description (see ShapeDescription class)
-	 * @param description the name of the shape and some doubles that define it
-	 */
 
 	Circle( ShapeDescription description ) {
         super(description);
-        radius = description.getDoubles();
-    }
+        radius = description.getDoubles().get(0);
+    }//END Constructor
 	
 	/**
 	 * Returns the area of a shape
 	 * @return the area
 	 */
     @Override
-    public double getArea()
-    {
+    public double getArea() {
        double area = Math.pow(radius, 2) * Math.PI;
        return area;
-    }
+    }//END getArea
 	
 	
 	/**
@@ -32,5 +26,5 @@ public class Circle extends Shape {
     public double getPerimeter() {
         double perimeter = 2 * Math.PI * radius;
         return perimeter;
-    }
+    }//END get Perim
 }

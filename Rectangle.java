@@ -1,29 +1,24 @@
 public class Rectangle extends Shape {
 
-    private double height, width = 0.0;
-	/**
-	 * You should override this to create a shape, based on the
-	 * shape's description (see ShapeDescription class)
-	 * @param description the name of the shape and some doubles that define it
-	 */
+    private double height = 0.0;
+    private double width = 0.0;
+
 	Rectangle( ShapeDescription description ) {
         super(description);
-        Vector<Double> sideVector = sideVector(description.getDoubles());
         
-        height = sideVector[0];
-        width = sideVector[1];
-    }
+        height = description.getDoubles().get(0);
+        width = description.getDoubles().get(1);
+    }//END Constructor
 	
 	/**
 	 * Returns the area of a shape
 	 * @return the area
 	 */
     @Override
-    public double getArea()
-    {
+    public double getArea(){
        double area = height * width;
        return area;
-    }
+    }//END get area
 	
 	
 	/**
@@ -34,5 +29,5 @@ public class Rectangle extends Shape {
     public double getPerimeter() {
         double perimeter = (height * 2) + (width * 2);
         return perimeter;
-    }
+    }//END getPerim
 }
